@@ -1,0 +1,206 @@
+LAMMPS (29 Oct 2020)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (../comm.cpp:94)
+  using 1 OpenMP thread(s) per MPI task
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (../comm.cpp:94)
+  using 1 OpenMP thread(s) per MPI task
+Reading data file ...
+  orthogonal box = (-0.27717828 -3.4472206 -0.27717828) to (27.617178 331.52722 27.617178)
+  2 by 13 by 2 MPI processor grid
+  reading atoms ...
+  18000 atoms
+  reading velocities ...
+  18000 velocities
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0.0      0.0      0.0     
+  special bond factors coul:  0.0      0.0      0.0     
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.004 seconds
+  read_data CPU = 0.092 seconds
+45 atoms in group sphere
+8 atoms in group oxygen
+1 atoms in group thorium
+9 atoms in group 1
+36 atoms in group cluster
+6000 atoms in group Th
+12000 atoms in group O
+12 atoms in group Th_group
+24 atoms in group O_group
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 36 atoms, new total = 17964
+45 atoms in group sphere
+8 atoms in group oxygen
+1 atoms in group thorium
+9 atoms in group 1
+36 atoms in group cluster
+5988 atoms in group Th
+11976 atoms in group O
+12 atoms in group Th_group
+24 atoms in group O_group
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 36 atoms, new total = 17928
+45 atoms in group sphere
+8 atoms in group oxygen
+1 atoms in group thorium
+9 atoms in group 1
+36 atoms in group cluster
+5976 atoms in group Th
+11952 atoms in group O
+12 atoms in group Th_group
+24 atoms in group O_group
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 36 atoms, new total = 17892
+45 atoms in group sphere
+8 atoms in group oxygen
+1 atoms in group thorium
+9 atoms in group 1
+36 atoms in group cluster
+5964 atoms in group Th
+11928 atoms in group O
+12 atoms in group Th_group
+24 atoms in group O_group
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 36 atoms, new total = 17856
+45 atoms in group sphere
+8 atoms in group oxygen
+1 atoms in group thorium
+9 atoms in group 1
+36 atoms in group cluster
+5952 atoms in group Th
+11904 atoms in group O
+12 atoms in group Th_group
+24 atoms in group O_group
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 36 atoms, new total = 17820
+45 atoms in group sphere
+8 atoms in group oxygen
+1 atoms in group thorium
+9 atoms in group 1
+36 atoms in group cluster
+5940 atoms in group Th
+11880 atoms in group O
+12 atoms in group Th_group
+24 atoms in group O_group
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 36 atoms, new total = 17784
+45 atoms in group sphere
+8 atoms in group oxygen
+1 atoms in group thorium
+9 atoms in group 1
+36 atoms in group cluster
+5928 atoms in group Th
+11856 atoms in group O
+12 atoms in group Th_group
+24 atoms in group O_group
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 36 atoms, new total = 17748
+45 atoms in group sphere
+8 atoms in group oxygen
+1 atoms in group thorium
+9 atoms in group 1
+36 atoms in group cluster
+5916 atoms in group Th
+11832 atoms in group O
+12 atoms in group Th_group
+24 atoms in group O_group
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 36 atoms, new total = 17712
+9 atoms in group sphere
+8 atoms in group oxygen
+1 atoms in group thorium
+9 atoms in group 1
+0 atoms in group cluster
+5904 atoms in group Th
+11808 atoms in group O
+0 atoms in group Th_group
+0 atoms in group O_group
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 0 atoms, new total = 17712
+45 atoms in group sphere
+8 atoms in group oxygen
+1 atoms in group thorium
+9 atoms in group 1
+36 atoms in group cluster
+5904 atoms in group Th
+11808 atoms in group O
+12 atoms in group Th_group
+24 atoms in group O_group
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 36 atoms, new total = 17676
+Setting atom values ...
+  11784 settings made for charge
+Setting atom values ...
+  5892 settings made for charge
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:328)
+  G vector (1/distance) = 0.29912441
+  grid = 40 240 40
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00015391252
+  estimated relative force accuracy = 1.0688633e-05
+  using single precision MKL FFT
+  3d grid and FFT values/proc = 18225 7600
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 13
+  ghost atom cutoff = 13
+  binsize = 6.5, bins = 5 52 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d/newton
+      bin: standard
+  (2) pair eam/alloy, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+Setting up cg style minimization ...
+  Unit style    : metal
+  Current step  : 0
+WARNING: Energy due to 3 extra global DOFs will be included in minimizer energies
+Per MPI rank memory allocation (min/avg/max) = 9.475 | 10.06 | 10.28 Mbytes
+Step Temp E_pair E_mol TotEng Press Volume 
+       0            0   -231966.24            0   -231966.24    -2127.754    260641.98 
+     181            0    -232192.3            0    -232192.3   -30.354637    260822.12 
+Loop time of 4.03428 on 52 procs for 181 steps with 17676 atoms
+
+99.6% CPU use with 52 MPI tasks x 1 OpenMP threads
+
+Minimization stats:
+  Stopping criterion = linesearch alpha is zero
+  Energy initial, next-to-last, final = 
+     -231966.240513733  -232192.301412985  -232192.301412985
+  Force two-norm initial, final = 676.61615 15.188672
+  Force max component initial, final = 576.38886 13.346608
+  Final line search alpha, max atom move = 3.2223619e-11 4.3007601e-10
+  Iterations, force evaluations = 181 371
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.2884     | 2.4672     | 2.6516     |   5.4 | 61.16
+Bond    | 3.3073e-05 | 4.8501e-05 | 8.8181e-05 |   0.0 |  0.00
+Kspace  | 0.56517    | 0.74973    | 0.92862    |   9.8 | 18.58
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.059124   | 0.061849   | 0.06441    |   0.5 |  1.53
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0.7555     |            |       | 18.73
+
+Nlocal:        339.923 ave         404 max         289 min
+Histogram: 5 5 8 7 4 8 4 8 1 2
+Nghost:        5560.42 ave        5770 max        5402 min
+Histogram: 5 5 8 7 5 9 5 3 3 2
+Neighs:       107780.0 ave      130396 max       89563 min
+Histogram: 7 4 6 5 6 9 5 6 2 2
+
+Total # of neighbors = 5604582
+Ave neighs/atom = 317.07298
+Ave special neighs/atom = 0.0000000
+Neighbor list builds = 0
+Dangerous builds = 0

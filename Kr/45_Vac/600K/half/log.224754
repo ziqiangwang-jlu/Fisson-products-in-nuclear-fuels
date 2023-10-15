@@ -1,0 +1,143 @@
+LAMMPS (29 Oct 2020)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (../comm.cpp:94)
+  using 1 OpenMP thread(s) per MPI task
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (../comm.cpp:94)
+  using 1 OpenMP thread(s) per MPI task
+Reading data file ...
+  orthogonal box = (-0.27717828 -3.4472206 -0.27717828) to (27.617178 331.52722 27.617178)
+  2 by 13 by 2 MPI processor grid
+  reading atoms ...
+  18000 atoms
+  reading velocities ...
+  18000 velocities
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0.0      0.0      0.0     
+  special bond factors coul:  0.0      0.0      0.0     
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.004 seconds
+  read_data CPU = 0.061 seconds
+45 atoms in group sphere
+2 atoms in group oxygen
+2 atoms in group thorium
+43 atoms in group 1
+45 atoms in group cluster
+6000 atoms in group Th
+12000 atoms in group O
+15 atoms in group Th_group
+30 atoms in group O_group
+Setting atom values ...
+  8 settings made for type/subset
+8 atoms in group Xe
+37 atoms in group delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 37 atoms, new total = 17963
+45 atoms in group sphere
+2 atoms in group oxygen
+2 atoms in group thorium
+43 atoms in group 1
+45 atoms in group cluster
+5985 atoms in group Th
+11970 atoms in group O
+15 atoms in group Th_group
+30 atoms in group O_group
+Setting atom values ...
+  8 settings made for type/subset
+16 atoms in group Xe
+37 atoms in group delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 37 atoms, new total = 17926
+45 atoms in group sphere
+2 atoms in group oxygen
+2 atoms in group thorium
+43 atoms in group 1
+45 atoms in group cluster
+5970 atoms in group Th
+11940 atoms in group O
+15 atoms in group Th_group
+30 atoms in group O_group
+Setting atom values ...
+  8 settings made for type/subset
+24 atoms in group Xe
+37 atoms in group delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 37 atoms, new total = 17889
+45 atoms in group sphere
+2 atoms in group oxygen
+2 atoms in group thorium
+43 atoms in group 1
+45 atoms in group cluster
+5955 atoms in group Th
+11910 atoms in group O
+15 atoms in group Th_group
+30 atoms in group O_group
+Setting atom values ...
+  8 settings made for type/subset
+32 atoms in group Xe
+37 atoms in group delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 37 atoms, new total = 17852
+45 atoms in group sphere
+2 atoms in group oxygen
+2 atoms in group thorium
+43 atoms in group 1
+45 atoms in group cluster
+5940 atoms in group Th
+11880 atoms in group O
+15 atoms in group Th_group
+30 atoms in group O_group
+Setting atom values ...
+  8 settings made for type/subset
+40 atoms in group Xe
+37 atoms in group delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 37 atoms, new total = 17815
+45 atoms in group sphere
+2 atoms in group oxygen
+2 atoms in group thorium
+43 atoms in group 1
+45 atoms in group cluster
+5925 atoms in group Th
+11850 atoms in group O
+15 atoms in group Th_group
+30 atoms in group O_group
+Setting atom values ...
+  8 settings made for type/subset
+48 atoms in group Xe
+37 atoms in group delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 37 atoms, new total = 17778
+45 atoms in group sphere
+2 atoms in group oxygen
+2 atoms in group thorium
+43 atoms in group 1
+45 atoms in group cluster
+5910 atoms in group Th
+11820 atoms in group O
+15 atoms in group Th_group
+30 atoms in group O_group
+Setting atom values ...
+  8 settings made for type/subset
+56 atoms in group Xe
+37 atoms in group delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 37 atoms, new total = 17741
+45 atoms in group sphere
+2 atoms in group oxygen
+2 atoms in group thorium
+43 atoms in group 1
+45 atoms in group cluster
+5895 atoms in group Th
+11790 atoms in group O
+15 atoms in group Th_group
+30 atoms in group O_group
+Setting atom values ...
+  8 settings made for type/subset
+64 atoms in group Xe
+37 atoms in group delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 37 atoms, new total = 17704
+ERROR: Could not find group delete group ID (../group.cpp:106)
+Last command: group            Th         delete

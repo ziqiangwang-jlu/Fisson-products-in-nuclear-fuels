@@ -1,0 +1,336 @@
+#-------------------------
+#
+#This script is used to create different concentrations of vacancies in thorium dioxide
+#By Ziqiang Wang on 07/03/2023
+#
+#-------------------------
+
+clear
+units                        metal
+dimension                        3
+boundary                     p p p
+atom_style                   full
+atom_modify                  map array
+
+read_data                   perfect_relaxed.dat
+
+# randomly create vacancies in the relaxed perfect crystal
+variable         n               equal    12
+variable         vac_ratio       equal    0.02
+region           sphere    sphere     13.67 30.0502 13.67 5.0  units box
+group            sphere     region  sphere
+group            oxygen     id 7591 11131 11189 7592 7595 11135 11193 7596 
+group            thorium    id 11188
+group            1          union thorium oxygen 
+group            cluster          subtract    sphere 1
+group            Th       type     2
+group            O        type     1
+group            Th_group   intersect  cluster   Th
+group            O_group    intersect  cluster   O
+
+set              group      Th_group   type/subset   3  $n  2253
+group            Xe         type       3
+group            delete     subtract   cluster   Xe
+delete_atoms     group      delete
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+region           sphere    sphere     13.67 57.9648 13.67 5.0  units box
+group            sphere     region  sphere
+group            oxygen     id 7891 11431 11489 7892 7895 11435 11493 7896  
+group            thorium    id 11488 
+group            1          union thorium oxygen
+group            cluster          subtract    sphere 1 
+group            Th       type     2
+group            O        type     1
+group            Th_group   intersect  cluster   Th
+group            O_group    intersect  cluster   O
+
+set              group      Th_group   type/subset   3  $n  2253
+group            Xe         type       3
+group            delete     subtract   cluster   Xe
+delete_atoms     group      delete
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+region           sphere    sphere     13.67 85.8793 13.67 5.0  units box
+group            sphere     region  sphere
+group            oxygen     id 8191 11789 11731 8192 8195 11793 11735 8196
+group            thorium    id 11788
+group            1          union thorium oxygen
+group            cluster          subtract    sphere 1
+group            Th       type     2
+group            O        type     1
+group            Th_group   intersect  cluster   Th
+group            O_group    intersect  cluster   O
+
+set              group      Th_group   type/subset   3  $n  2253
+group            Xe         type       3
+group            delete     subtract   cluster   Xe
+delete_atoms     group      delete
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+
+region           sphere    sphere     13.67 113.794 13.67 5.0  units box
+group            sphere     region  sphere
+group            oxygen     id 8491 12089 12031 8492 8495 12093 12035 8496 
+group            thorium    id 12088
+group            1          union thorium oxygen
+group            cluster          subtract    sphere 1 
+group            Th       type     2
+group            O        type     1
+group            Th_group   intersect  cluster   Th
+group            O_group    intersect  cluster   O
+
+set              group      Th_group   type/subset   3  $n  2253
+group            Xe         type       3
+group            delete     subtract   cluster   Xe
+delete_atoms     group      delete
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+region           sphere    sphere     13.67 141.708 13.67 5.0  units box
+group            sphere     region  sphere
+group            oxygen     id 8791 12331 12389 8792 8795 12335 12393 8796
+group            thorium    id 12388
+group            1          union thorium oxygen
+group            cluster          subtract sphere    1 
+group            Th       type     2
+group            O        type     1
+group            Th_group   intersect  cluster   Th
+group            O_group    intersect  cluster   O
+
+set              group      Th_group   type/subset   3  $n  2253
+group            Xe         type       3
+group            delete     subtract   cluster   Xe
+delete_atoms     group      delete
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+
+region           sphere    sphere     13.67 197.537 13.67 5.0  units box
+group            sphere     region  sphere
+group            oxygen     id 9391 12989 12931 9392 9395 12993 12935 9396 
+group            thorium    id 12988
+group            1          union thorium oxygen
+group            cluster          subtract    sphere 1
+group            Th       type     2
+group            O        type     1
+group            Th_group   intersect  cluster   Th
+group            O_group    intersect  cluster   O
+
+set              group      Th_group   type/subset   3  $n  2253
+group            Xe         type       3
+group            delete     subtract   cluster   Xe
+delete_atoms     group      delete
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+region           sphere    sphere     13.67 225.452 13.67 5.0  units box
+group            sphere     region  sphere
+group            oxygen     id 13289 13231 9691 9692 13293 13235 9695 9696
+group            thorium    id 13288
+group            1          union thorium oxygen
+group            cluster    subtract     sphere 1 
+group            Th       type     2
+group            O        type     1
+group            Th_group   intersect  cluster   Th
+group            O_group    intersect  cluster   O
+
+set              group      Th_group   type/subset   3  $n  2253
+group            Xe         type       3
+group            delete     subtract   cluster   Xe
+delete_atoms     group      delete
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+region           sphere    sphere     13.67 253.367 13.67 5.0  units box
+group            sphere     region  sphere
+group            oxygen     id 13531 9991 13589 9992 13535 9995 13593 9996
+group            thorium    id 13588 
+group            1          union thorium oxygen
+group            cluster    subtract      sphere    1 
+group            Th       type     2
+group            O        type     1
+group            Th_group   intersect  cluster   Th
+group            O_group    intersect  cluster   O
+
+set              group      Th_group   type/subset   3  $n  2253
+group            Xe         type       3
+group            delete     subtract   cluster   Xe
+delete_atoms     group      delete
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+region           sphere    sphere     13.67 281.281 13.67 5.0  units box
+group            sphere     region  sphere
+group            oxygen     id 13831 10291 13889 10292 13835 10295 13893 10296 
+group            thorium    id 13888 
+group            1          union thorium oxygen
+group            cluster    subtract      sphere    1 
+group            Th       type     2
+group            O        type     1
+group            Th_group   intersect  cluster   Th
+group            O_group    intersect  cluster   O
+
+set              group      Th_group   type/subset   3  $n  2253
+group            Xe         type       3
+group            delete     subtract   cluster   Xe
+delete_atoms     group      delete
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+
+region           sphere    sphere     13.67 303.613 13.67 5.0  units box
+group            sphere     region  sphere
+group            oxygen     id 14129 14071 10531 10532 14133 14075 10535 10536 
+group            thorium    id 14128 
+group            1          union thorium oxygen
+group            cluster    subtract      sphere    1 
+group            Th       type     2
+group            O        type     1
+group            Th_group   intersect  cluster   Th
+group            O_group    intersect  cluster   O
+
+set              group      Th_group   type/subset   3  $n  2253
+group            Xe         type       3
+group            delete     subtract   cluster   Xe
+delete_atoms     group      delete
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+set                         type    1      charge   -1.1104
+set                         type    2      charge    2.2208
+set                         type    3      charge    0.0
+kspace_style                pppm     1.0e-05
+pair_style                  hybrid/overlay  coul/long   11.0  eam/alloy  table  linear  1000  pppm
+pair_coeff                  * * coul/long
+pair_coeff                  * * eam/alloy CeThUNpPuAmCmO.eam.alloy O Th NULL
+pair_coeff                  3 3 table CRG_gas_potentials.lmptab Kr-Kr 11
+pair_coeff                  1 3 table CRG_gas_potentials.lmptab Kr-O 11
+pair_coeff                  2 3 table CRG_gas_potentials.lmptab Kr-Th 11
+neighbor                    2.0  bin
+neigh_modify                every  1  delay  0  check  yes
+
+# fully relaxing the defect configuration at 0K
+fix                box_relax  all  box/relax aniso 0.0 vmax 0.001
+min_style          cg
+minimize           1.0e-30 1.0e-30 10000 10000 
+unfix              box_relax
+
+# apply the temperature into the system and relaxing at the temperature of interest
+reset_atom_ids
+variable                    temp      equal    600
+velocity                    all  create   ${temp}  4542  dist  gaussian  rot  yes  mom  yes
+fix                         npt  all  npt  temp  ${temp}  ${temp}  $(100*dt) aniso  0.0  0.0  $(1000*dt)
+
+thermo                      10000
+thermo_style                custom   step dt time atoms temp pe ke press vol
+
+shell                       mkdir vac_${vac_ratio}_${temp}K
+dump                        1  all  custom  10000  ./vac_${vac_ratio}_${temp}K/dump_relax.atom.* id type q x y z
+dump_modify                 1  element  O  Th  Kr
+
+run                         100000
+shell                       mkdir thermal_condu
+write_data                  thermal_condu/vac_${vac_ratio}_relaxed.dat

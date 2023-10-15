@@ -1,0 +1,484 @@
+LAMMPS (29 Oct 2020)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (../comm.cpp:94)
+  using 1 OpenMP thread(s) per MPI task
+#-------------------------
+#
+#This script is used to create different concentrations of vacancies in thorium dioxide
+#By Ziqiang Wang on 07/03/2023
+#
+#-------------------------
+
+clear
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (../comm.cpp:94)
+  using 1 OpenMP thread(s) per MPI task
+units                        metal
+dimension                        3
+boundary                     p p p
+atom_style                   full
+atom_modify                  map array
+
+read_data                   perfect_relaxed.dat
+Reading data file ...
+  orthogonal box = (-0.27717828 -3.4472206 -0.27717828) to (27.617178 331.52722 27.617178)
+  2 by 13 by 2 MPI processor grid
+  reading atoms ...
+  18000 atoms
+  reading velocities ...
+  18000 velocities
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0.0      0.0      0.0     
+  special bond factors coul:  0.0      0.0      0.0     
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.003 seconds
+  read_data CPU = 0.058 seconds
+
+# randomly create vacancies in the relaxed perfect crystal
+variable         n               equal    8
+variable         vac_ratio       equal    0.02
+region           sphere    sphere     13.67 52.3819 13.67 7.0  units box
+group            sphere     region  sphere
+99 atoms in group sphere
+group            oxygen     id 7890 7846 7788 7894
+4 atoms in group oxygen
+group            thorium    id 11365 11356 11416 11485 7815 11377 7767 7840 11380 11440 11497 7887 7839
+13 atoms in group thorium
+group            1          subtract sphere thorium
+86 atoms in group 1
+group            cluster          union    1 oxygen
+90 atoms in group cluster
+group            Th       type     2
+6000 atoms in group Th
+group            O        type     1
+12000 atoms in group O
+group            Th_group   intersect  cluster   Th
+30 atoms in group Th_group
+group            O_group    intersect  cluster   O
+60 atoms in group O_group
+
+set              group      Th_group   type/subset  3  $n    2257
+set              group      Th_group   type/subset  3  8    2257
+Setting atom values ...
+  8 settings made for type/subset
+group            Xe         type       3
+8 atoms in group Xe
+group            delete     subtract   cluster    Xe
+82 atoms in group delete
+delete_atoms     group      delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 82 atoms, new total = 17918
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+region           sphere    sphere     13.67 119.377 13.67 7.0  units box
+group            sphere     region  sphere
+99 atoms in group sphere
+group            oxygen     id 8610 8566 8508 8614
+4 atoms in group oxygen
+group            thorium    id 12085 12076 12205 12136 8607 8535 8560 12097 12100 12217 12160 8487 8559
+13 atoms in group thorium
+group            1          subtract sphere thorium
+86 atoms in group 1
+group            cluster          union    1 oxygen
+90 atoms in group cluster
+group            Th       type     2
+5970 atoms in group Th
+group            O        type     1
+11940 atoms in group O
+group            Th_group   intersect  cluster   Th
+30 atoms in group Th_group
+group            O_group    intersect  cluster   O
+60 atoms in group O_group
+set              group      Th_group   type/subset  3  $n    2257
+set              group      Th_group   type/subset  3  8    2257
+Setting atom values ...
+  8 settings made for type/subset
+group            Xe         type       3
+16 atoms in group Xe
+group            delete     subtract   cluster    Xe
+82 atoms in group delete
+delete_atoms     group      delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 82 atoms, new total = 17836
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+region           sphere    sphere     13.67 214.286 13.67 7.0  units box
+group            sphere     region  sphere
+99 atoms in group sphere
+group            oxygen     id 9630 9586 9528 9634
+4 atoms in group oxygen
+group            thorium    id 13105 13096 13156 13225 9555 9627 9507 9580 13117 13120 13180 13237 9579
+13 atoms in group thorium
+group            1          subtract sphere thorium
+86 atoms in group 1
+group            cluster          union    1 oxygen
+90 atoms in group cluster
+group            Th       type     2
+5940 atoms in group Th
+group            O        type     1
+11880 atoms in group O
+group            Th_group   intersect  cluster   Th
+30 atoms in group Th_group
+group            O_group    intersect  cluster   O
+60 atoms in group O_group
+set              group      Th_group   type/subset  3  $n    2257
+set              group      Th_group   type/subset  3  8    2257
+Setting atom values ...
+  8 settings made for type/subset
+group            Xe         type       3
+24 atoms in group Xe
+group            delete     subtract   cluster    Xe
+82 atoms in group delete
+delete_atoms     group      delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 82 atoms, new total = 17754
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+region           sphere    sphere     13.67 275.698 13.67 7.0  units box
+group            sphere     region  sphere
+99 atoms in group sphere
+group            oxygen     id 10290 10246 10188 10294
+4 atoms in group oxygen
+group            thorium    id 13765 13756 13816 10167 10215 13885 10240 13777 13780 13840 10239 13897 10287
+13 atoms in group thorium
+group            1          subtract sphere thorium
+86 atoms in group 1
+group            cluster          union    1 oxygen
+90 atoms in group cluster
+group            Th       type     2
+5910 atoms in group Th
+group            O        type     1
+11820 atoms in group O
+group            Th_group   intersect  cluster   Th
+30 atoms in group Th_group
+group            O_group    intersect  cluster   O
+60 atoms in group O_group
+set              group      Th_group   type/subset  3  $n    2257
+set              group      Th_group   type/subset  3  8    2257
+Setting atom values ...
+  8 settings made for type/subset
+group            Xe         type       3
+32 atoms in group Xe
+group            delete     subtract   cluster    Xe
+82 atoms in group delete
+delete_atoms     group      delete
+WARNING: Ignoring 'compress yes' for molecular system (../delete_atoms.cpp:125)
+Deleted 82 atoms, new total = 17672
+group            Xe         delete
+group            delete     delete
+region           sphere     delete
+group            sphere     delete
+group            oxygen     delete
+group            thorium    delete
+group            1          delete
+group            cluster    delete
+group            Th         delete
+group            O          delete
+group            Th_group   delete
+group            O_group    delete
+
+set                         type    1      charge   -1.1104
+Setting atom values ...
+  11760 settings made for charge
+set                         type    2      charge    2.2208
+Setting atom values ...
+  5880 settings made for charge
+set                         type    3      charge    0.0
+Setting atom values ...
+  32 settings made for charge
+kspace_style                pppm     1.0e-05
+pair_style                  hybrid/overlay  coul/long   11.0  eam/alloy  table  linear  1000  pppm
+pair_coeff                  * * coul/long
+pair_coeff                  * * eam/alloy CeThUNpPuAmCmO.eam.alloy O Th NULL
+pair_coeff                  3 3 table CRG_gas_potentials.lmptab Xe-Xe 11
+WARNING: 13 of 1000 force values in table Xe-Xe are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:461)
+pair_coeff                  1 3 table CRG_gas_potentials.lmptab Xe-O 11
+WARNING: 2 of 1000 force values in table Xe-O are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:461)
+pair_coeff                  2 3 table CRG_gas_potentials.lmptab Xe-Th 11
+WARNING: 2 of 1000 force values in table Xe-Th are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:461)
+neighbor                    2.0  bin
+neigh_modify                every  1  delay  0  check  yes
+
+# fully relaxing the defect configuration at 0K
+fix                box_relax  all  box/relax aniso 0.0 vmax 0.001
+min_style          cg
+minimize           1.0e-30 1.0e-30 10000 10000
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:328)
+  G vector (1/distance) = 0.29911918
+  grid = 40 240 40
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00015363825
+  estimated relative force accuracy = 1.0669586e-05
+  using single precision MKL FFT
+  3d grid and FFT values/proc = 18225 7600
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 13
+  ghost atom cutoff = 13
+  binsize = 6.5, bins = 5 52 5
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d/newton
+      bin: standard
+  (2) pair eam/alloy, perpetual, skip from (1)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+  (3) pair table, perpetual, skip from (1)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+Per MPI rank memory allocation (min/avg/max) = 10.35 | 10.95 | 11.16 Mbytes
+Step Temp E_pair E_mol TotEng Press Volume 
+       0            0   -230738.58            0   -230738.58     1014.367    260641.98 
+     278            0    -231526.1            0    -231526.1    54.619321    261468.06 
+Loop time of 5.16499 on 52 procs for 278 steps with 17672 atoms
+
+99.5% CPU use with 52 MPI tasks x 1 OpenMP threads
+
+Minimization stats:
+  Stopping criterion = linesearch alpha is zero
+  Energy initial, next-to-last, final = 
+     -230738.578247307  -231526.104237622  -231526.104237622
+  Force two-norm initial, final = 731.93022 23.956249
+  Force max component initial, final = 551.70393 18.521009
+  Final line search alpha, max atom move = 1.3078892e-11 2.4223427e-10
+  Iterations, force evaluations = 278 487
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.9838     | 3.1431     | 3.3278     |   4.3 | 60.85
+Bond    | 4.4718e-05 | 6.2477e-05 | 0.00010205 |   0.0 |  0.00
+Kspace  | 0.82791    | 1.0146     | 1.1752     |   7.6 | 19.64
+Neigh   | 0.0050694  | 0.0061421  | 0.0078345  |   0.9 |  0.12
+Comm    | 0.075204   | 0.078279   | 0.081183   |   0.5 |  1.52
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0.9228     |            |       | 17.87
+
+Nlocal:        339.846 ave         412 max         287 min
+Histogram: 9 3 1 18 6 2 0 4 7 2
+Nghost:        5544.31 ave        5746 max        5342 min
+Histogram: 4 8 4 3 6 8 4 5 3 7
+Neighs:       107918.0 ave      132895 max       90858 min
+Histogram: 2 12 4 15 4 5 1 4 3 2
+
+Total # of neighbors = 5611716
+Ave neighs/atom = 317.54844
+Ave special neighs/atom = 0.0000000
+Neighbor list builds = 2
+Dangerous builds = 0
+unfix              box_relax
+
+# apply the temperature into the system and relaxing at the temperature of interest
+reset_atom_ids
+Resetting atom IDs ...
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:328)
+  G vector (1/distance) = 0.29906124
+  grid = 40 240 40
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00015410097
+  estimated relative force accuracy = 1.070172e-05
+  using single precision MKL FFT
+  3d grid and FFT values/proc = 18225 7600
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 13
+  ghost atom cutoff = 13
+  binsize = 6.5, bins = 5 52 5
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d/newton
+      bin: standard
+  (2) pair eam/alloy, perpetual, skip from (1)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+  (3) pair table, perpetual, skip from (1)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0.0      0.0      0.0     
+  special bond factors coul:  0.0      0.0      0.0     
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.001 seconds
+variable                    temp      equal    300
+velocity                    all  create   ${temp}  4542  dist  gaussian  rot  yes  mom  yes
+velocity                    all  create   300  4542  dist  gaussian  rot  yes  mom  yes
+fix                         npt  all  npt  temp  ${temp}  ${temp}  $(100*dt) aniso  0.0  0.0  $(1000*dt)
+fix                         npt  all  npt  temp  300  ${temp}  $(100*dt) aniso  0.0  0.0  $(1000*dt)
+fix                         npt  all  npt  temp  300  300  $(100*dt) aniso  0.0  0.0  $(1000*dt)
+fix                         npt  all  npt  temp  300  300  0.10000000000000000555 aniso  0.0  0.0  $(1000*dt)
+fix                         npt  all  npt  temp  300  300  0.10000000000000000555 aniso  0.0  0.0  1
+
+thermo                      20000
+thermo_style                custom   step dt time atoms temp pe ke press vol
+
+shell                       mkdir vac_${vac_ratio}_${temp}K
+shell                       mkdir vac_0.02_${temp}K
+shell                       mkdir vac_0.02_300K
+dump                        1  all  custom  20000  ./vac_${vac_ratio}_${temp}K/dump_relax.atom.* id type q x y z
+dump                        1  all  custom  20000  ./vac_0.02_${temp}K/dump_relax.atom.* id type q x y z
+dump                        1  all  custom  20000  ./vac_0.02_300K/dump_relax.atom.* id type q x y z
+dump_modify                 1  element  O  Th  Xe
+
+run                         100000
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:328)
+  G vector (1/distance) = 0.29906124
+  grid = 40 240 40
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00015410097
+  estimated relative force accuracy = 1.070172e-05
+  using single precision MKL FFT
+  3d grid and FFT values/proc = 18225 7600
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 13
+  ghost atom cutoff = 13
+  binsize = 6.5, bins = 5 52 5
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d/newton
+      bin: standard
+  (2) pair eam/alloy, perpetual, skip from (1)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+  (3) pair table, perpetual, skip from (1)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+Per MPI rank memory allocation (min/avg/max) = 9.224 | 9.826 | 10.04 Mbytes
+Step Dt Time Atoms Temp PotEng KinEng Press Volume 
+     278        0.001            0    17672          300   -231526.11    685.24681    2853.7799    261468.06 
+   20000        0.001       19.722    17672    297.24826   -231170.74    678.96141   -83.587731    262681.32 
+   40000        0.001       39.722    17672    299.42662   -231156.18    683.93711    282.62726    262700.51 
+   60000        0.001       59.722    17672    299.01687   -231165.38    683.00118    1068.2287    262572.66 
+   80000        0.001       79.722    17672    301.78112   -231172.55    689.31516   -454.08207    262761.28 
+  100000        0.001       99.722    17672     299.7053   -231161.68    684.57367   -450.55824    262832.43 
+  100278        0.001          100    17672    297.08678   -231161.36    678.59256   -541.17827    262798.59 
+Loop time of 780.407 on 52 procs for 100000 steps with 17672 atoms
+
+Performance: 11.071 ns/day, 2.168 hours/ns, 128.138 timesteps/s
+99.8% CPU use with 52 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 479.95     | 497.35     | 517.92     |  38.1 | 63.73
+Bond    | 0.0089934  | 0.015208   | 0.025543   |   2.5 |  0.00
+Kspace  | 151.69     | 172.35     | 189.7      |  64.8 | 22.08
+Neigh   | 1.7727     | 1.9156     | 2.0762     |   4.9 |  0.25
+Comm    | 15.291     | 15.847     | 16.515     |   7.6 |  2.03
+Output  | 0.031062   | 0.031086   | 0.032147   |   0.1 |  0.00
+Modify  | 78.637     | 83.82      | 87.035     |  23.3 | 10.74
+Other   |            | 9.077      |            |       |  1.16
+
+Nlocal:        339.846 ave         364 max         324 min
+Histogram: 1 8 6 15 9 6 3 0 0 4
+Nghost:        5529.12 ave        5700 max        5364 min
+Histogram: 9 7 3 1 7 6 3 4 0 12
+Neighs:       107979.0 ave      118199 max       96475 min
+Histogram: 2 3 5 3 2 19 9 5 0 4
+
+Total # of neighbors = 5614929
+Ave neighs/atom = 317.73025
+Ave special neighs/atom = 0.0000000
+Neighbor list builds = 627
+Dangerous builds = 0
+shell                       mkdir thermal_condu
+write_data                  thermal_condu/vac_${vac_ratio}_relaxed.dat
+write_data                  thermal_condu/vac_0.02_relaxed.dat
+System init for write_data ...
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:328)
+  G vector (1/distance) = 0.29896965
+  grid = 40 240 40
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00015482663
+  estimated relative force accuracy = 1.0752114e-05
+  using single precision MKL FFT
+  3d grid and FFT values/proc = 18225 7600
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 13
+  ghost atom cutoff = 13
+  binsize = 6.5, bins = 5 52 5
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d/newton
+      bin: standard
+  (2) pair eam/alloy, perpetual, skip from (1)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+  (3) pair table, perpetual, skip from (1)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+Total wall time: 0:13:06

@@ -1,0 +1,16 @@
+#! /bin/bash
+
+
+for i in $(seq 1 1 5)
+do
+    mkdir seed_$i
+    seed=$(($i+10000))
+    sed "33s/442211/$seed/1" in.mp > in.mp_mod
+    position=vac_0.02_relaxed.dat
+    cp lammps.pbs in.mp_mod $position CeThUNpPuAmCmO.eam.alloy CRG_gas_potentials.lmptab seed_$i
+    cd seed_$i && awk -v infile=$position 'NR==16 {$2=infile} {print}' in.mp_mod > in.mp && qsub lammps.pbs 
+    rm -f in.mp_mod
+    cd ../
+    rm -f in.mp_mod
+done
+    
